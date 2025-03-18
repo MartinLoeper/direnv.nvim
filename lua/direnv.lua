@@ -108,7 +108,7 @@ M._get_rc_status = function(_on_exit)
   local on_exit = function(obj)
     local status = vim.json.decode(obj.stdout)
 
-    if status.state.foundRC == nil or status.state.foundRC.allowed == nil or status.state.foundRC.path == nil then
+    if status == nil or status.state == nil or status.state.foundRC == nil then
       return _on_exit(nil, nil)
     end
 
